@@ -23,8 +23,8 @@ export default function Registro() {
     }
 
     try {
-      const respuesta = await clienteAxios.post('/api/registro', datos)
-      console.log(respuesta)
+      const { data } = await clienteAxios.post('/api/registro', datos)
+      console.log(data.token)
     } catch (error) {
       setErrores(Object.values(error.response.data.errors))
     }
@@ -40,7 +40,6 @@ export default function Registro() {
           onSubmit={ handleSubmit }
           noValidate
         >
-
           {errores ? errores.map((error, i) => <Alerta key={i}>{error}</Alerta>) : null}
 
           <div className="mb-4">
