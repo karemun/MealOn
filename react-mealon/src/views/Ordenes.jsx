@@ -14,7 +14,7 @@ export default function Ordenes() {
 
   const { data, error, isLoading } = useSWR('/api/pedidos', fetcher, { refreshInterval: 1000 })
 
-  const { handleClickCompletar } = useQuiosco()
+  const { handleClickCompletarPedido } = useQuiosco()
 
   if (isLoading) return 'Cargando...'
 
@@ -59,7 +59,7 @@ export default function Ordenes() {
             <button 
               type="button"
               className='bg-indigo-600 hover:bg-indigo-800 px-5 py-2 rounded uppercase font-bold text-white text-center w-full cursor-pointer'
-              onClick={() => handleClickCompletar(pedido.id)}
+              onClick={() => handleClickCompletarPedido(pedido.id)}
             >
               Completar
             </button>
